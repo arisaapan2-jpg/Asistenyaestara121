@@ -5,100 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARISA_AI_SUPREME</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#050505">
-    <!-- Favicon & PWA Icons -->
-    <link rel="icon" href="https://api.dicebear.com/7.x/adventurer/svg?seed=ARISA" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="https://api.dicebear.com/7.x/adventurer/svg?seed=ARISA&size=180">
+    <link rel="icon" href="https://via.placeholder.com/45?text=ARISA" type="image/png">
 </head>
 <body>
-    <!-- Splash Screen -->
-    <div id="splash-screen" class="splash-active">
-        <div class="splash-logo">
-            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=ARISA" alt="ARISA AI" class="splash-avatar">
-            <h1 class="glow-text">ARISA_AI_SUPREME</h1>
-            <div class="rgb-loader">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Live Background -->
+    <!-- Background Sederhana -->
     <div class="neon-bg"></div>
-    <div class="particle-container"></div>
 
-    <!-- Sidebar Modern -->
+    <!-- Sidebar Ringan -->
     <div id="sidebar" class="sidebar-hidden">
         <div class="sidebar-header">
-            <h3 class="glow-text">MENU UTAMA</h3>
+            <h3>Menu Utama</h3>
             <button onclick="toggleSidebar()" class="close-sidebar">✕</button>
         </div>
         <div class="user-profile">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=USER" alt="User" class="user-avatar">
+            <img src="https://via.placeholder.com/50?text=USER" alt="User" class="user-avatar">
             <div class="user-details">
                 <h4 id="user-name">TUAN_WAHYU</h4>
-                <div class="exp-bar">
-                    <div class="exp-fill" style="width: 65%"></div>
-                </div>
-                <small>RANK: <span class="rank-text">CYBER_MASTER</span></small>
+                <small>RANK: CYBER_MASTER</small>
             </div>
         </div>
         <div class="sidebar-menu">
             <button onclick="quickCmd('Menu Fitur')" class="sidebar-btn">📋 Menu Fitur</button>
             <button onclick="openSettings()" class="sidebar-btn">⚙️ Pengaturan</button>
             <button onclick="viewChatHistory()" class="sidebar-btn">📜 Riwayat Chat</button>
-            <button onclick="installPWA()" class="sidebar-btn">📥 Instal Aplikasi</button>
-            <button onclick="secretMenu()" class="sidebar-btn">🔒 Menu Rahasia</button>
-        </div>
-        <div class="sidebar-footer">
-            <small>VERSI 1.0.0 | ONLINE</small>
-            <div class="ping-indicator">PING: <span id="ping-value">42</span>ms</div>
         </div>
     </div>
 
-    <!-- Main App Container -->
+    <!-- Main Container Ringan -->
     <div class="app-container">
         <header>
             <button onclick="toggleSidebar()" class="menu-btn">☰</button>
             <div class="ai-info">
                 <div class="avatar-wrapper">
-                    <img id="ai-avatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=ARISA" alt="ARISA AI" class="animated-avatar" onerror="this.src='https://via.placeholder.com/45?text=AI';">
+                    <img id="ai-avatar" src="https://via.placeholder.com/45?text=ARISA" alt="ARISA AI" onerror="this.src='https://via.placeholder.com/45?text=AI';">
                     <div class="status-dot pulse"></div>
                 </div>
                 <div>
-                    <h2 id="ai-display-name" class="glow-text">ARISA_AI_SUPREME</h2>
+                    <h2 id="ai-display-name">ARISA_AI_SUPREME</h2>
                     <small id="clock">00:00:00</small>
                 </div>
             </div>
             <div class="header-btns">
-                <button onclick="toggleVoice()" id="voice-btn" class="neon-btn">🔊</button>
-                <button onclick="hapusChat()" class="neon-btn">🗑️</button>
-                <button onclick="checkConnection()" class="neon-btn">📶</button>
+                <button onclick="toggleVoice()" id="voice-btn">🔊</button>
+                <button onclick="hapusChat()">🗑️</button>
             </div>
         </header>
 
-        <!-- Notification Popup -->
-        <div id="notification" class="hidden">
-            <div class="notification-content">
-                <span id="notif-text">✅ Selamat datang kembali, Tuan!</span>
-            </div>
-        </div>
-
         <div id="chat-box">
             <div class="msg bot">
-                <span class="typing-indicator hidden" id="typing-indicator">
-                    <span></span><span></span><span></span>
-                </span>
-                Selamat datang, Tuan Wahyu ✨. Ada yang bisa saya bantu rakit hari ini? 🌸
+                Selamat datang, Tuan Wahyu ✨. Ada yang bisa saya bantu? 🌸
             </div>
         </div>
 
         <div id="loader" class="hidden">
-            <div class="rgb-loader small">
-                <span></span><span></span><span></span>
-            </div>
-            Sabar dulu Tuan, loading... ✨
+            Sabar dulu Tuan... ✨
         </div>
 
         <div class="quick-btns">
@@ -106,45 +68,31 @@
             <button onclick="quickCmd('Cari Music ID')" class="quick-btn">🎵 Music ID</button>
             <button onclick="quickCmd('Buat Logo')" class="quick-btn">🎨 Logo</button>
             <button onclick="quickCmd('Buat Website Portofolio')" class="quick-btn">🌐 Web</button>
-            <button onclick="quickCmd('Cari Script GitHub')" class="quick-btn">💻 Script</button>
-            <button onclick="quickCmd('Buat Stiker')" class="quick-btn">🏷️ Stiker</button>
         </div>
 
         <div class="input-area">
-            <button onclick="toggleEmojiPicker()" class="emoji-btn">😊</button>
-            <div id="emoji-picker" class="hidden">
-                <span onclick="addEmoji('✨')">✨</span><span onclick="addEmoji('💎')">💎</span><span onclick="addEmoji('🚀')">🚀</span><span onclick="addEmoji('🛡️')">🛡️</span><span onclick="addEmoji('🎮')">🎮</span>
-                <span onclick="addEmoji('🎨')">🎨</span><span onclick="addEmoji('🎵')">🎵</span><span onclick="addEmoji('🌐')">🌐</span><span onclick="addEmoji('💻')">💻</span><span onclick="addEmoji('✅')">✅</span>
-            </div>
-            <input type="text" id="user-input" placeholder="Ketik perintah... (ketik '/' untuk saran)" autocomplete="off" class="neon-input">
-            <button onclick="toggleVoiceInput()" class="mic-btn">🎙️</button>
-            <button id="send-btn" class="neon-btn">KIRIM</button>
+            <input type="text" id="user-input" placeholder="Ketik perintah..." autocomplete="off">
+            <button id="send-btn">KIRIM</button>
         </div>
     </div>
 
-    <!-- Settings Popup -->
+    <!-- Settings Popup Ringan -->
     <div id="settings-modal" class="hidden">
         <div class="modal-overlay" onclick="closeSettings()"></div>
-        <div class="modal-content glassmorphism">
-            <h3 class="glow-text">⚙️ PENGATURAN ARISA</h3>
+        <div class="modal-content">
+            <h3>⚙️ Pengaturan</h3>
             <button class="close-modal" onclick="closeSettings()">✕</button>
             
             <div class="setting-section">
                 <h4>SUARA AI</h4>
-                <button onclick="changeVoice('female')" class="setting-btn">👩 Cewek Cyber Lembut</button>
-                <button onclick="changeVoice('male')" class="setting-btn">👨 Cowok JARVIS Modern</button>
+                <button onclick="changeVoice('female')" class="setting-btn">👩 Cewek Lembut</button>
+                <button onclick="changeVoice('male')" class="setting-btn">👨 Cowok Modern</button>
             </div>
             
             <div class="setting-section">
-                <h4>TEMA WARNA</h4>
+                <h4>TEMA</h4>
                 <button onclick="changeTheme('blue')" class="setting-btn">🔵 Neon Biru</button>
                 <button onclick="changeTheme('purple')" class="setting-btn">🟣 Neon Ungu</button>
-                <button onclick="changeTheme('red')" class="setting-btn">🔴 Neon Merah</button>
-            </div>
-            
-            <div class="setting-section">
-                <h4>PERFORMANCE</h4>
-                <button onclick="togglePerformanceMode()" class="setting-btn" id="perf-btn">⚡ Mode Normal</button>
             </div>
         </div>
     </div>
