@@ -1,13 +1,10 @@
 :root {
     --neon: #00f2ff;
     --purple: #bc13fe;
-    --red: #ff2a6d;
     --glass: rgba(255, 255, 255, 0.05);
     --bg-dark: #050505;
-    --text-glow: 0 0 5px var(--neon), 0 0 10px var(--neon);
 }
 
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -19,108 +16,26 @@ body {
     background: var(--bg-dark);
     color: white;
     overflow-x: hidden;
-    cursor: url('https://via.placeholder.com/20?text=+'), auto;
 }
 
-/* Splash Screen */
-#splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: var(--bg-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    transition: opacity 0.8s ease-out;
-}
-.splash-active { opacity: 1; visibility: visible; }
-.splash-hidden { opacity: 0; visibility: hidden; }
-
-.splash-logo {
-    text-align: center;
-}
-.splash-avatar {
-    width: 80px;
-    border-radius: 50%;
-    border: 3px solid var(--neon);
-    animation: rotate 5s linear infinite;
-}
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* RGB Loader */
-.rgb-loader {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    margin: 20px 0;
-}
-.rgb-loader span {
-    width: 10px;
-    height: 30px;
-    background: var(--neon);
-    animation: rgb-pulse 1.5s infinite alternate;
-}
-.rgb-loader span:nth-child(2) { animation-delay: 0.3s; }
-.rgb-loader span:nth-child(3) { animation-delay: 0.6s; }
-.rgb-loader.small span { height: 15px; width: 6px; }
-@keyframes rgb-pulse {
-    0% { background: var(--neon); }
-    50% { background: var(--purple); }
-    100% { background: var(--red); }
-}
-
-/* Glow Text */
-.glow-text {
-    color: var(--neon);
-    text-shadow: var(--text-glow);
-    font-family: 'Orbitron', sans-serif;
-}
-
-/* Live Background & Particles */
+/* Background Sederhana */
 .neon-bg {
     position: fixed;
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at center, #101025 0%, #000 100%);
-    z-index: -2;
-}
-.particle-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
     z-index: -1;
-    pointer-events: none;
-}
-.particle {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: var(--neon);
-    border-radius: 50%;
-    animation: float 8s linear infinite;
-}
-@keyframes float {
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-    5% { opacity: 1; }
-    95% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
-/* Sidebar */
+/* Sidebar Ringan */
 #sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 300px;
+    width: 280px;
     height: 100vh;
     background: var(--glass);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(5px);
     border-right: 1px solid var(--neon);
     z-index: 500;
     transition: transform 0.3s ease;
@@ -129,14 +44,6 @@ body {
 .sidebar-hidden { transform: translateX(-100%); }
 .sidebar-shown { transform: translateX(0); }
 
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 10px;
-}
 .close-sidebar, .menu-btn {
     background: transparent;
     border: none;
@@ -150,37 +57,17 @@ body {
     gap: 15px;
     align-items: center;
     margin-bottom: 20px;
-    padding: 10px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 10px;
 }
 .user-avatar {
     width: 50px;
     border-radius: 50%;
     border: 2px solid var(--neon);
 }
-.exp-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 4px;
-    margin: 5px 0;
-}
-.exp-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--neon), var(--purple));
-    border-radius: 4px;
-}
-.rank-text {
-    color: var(--purple);
-    text-shadow: 0 0 5px var(--purple);
-}
 
 .sidebar-menu {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 30px;
 }
 .sidebar-btn {
     background: var(--glass);
@@ -189,28 +76,193 @@ body {
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-.sidebar-btn:hover {
-    background: rgba(0, 242, 255, 0.2);
-    box-shadow: 0 0 10px var(--neon);
 }
 
-/* App Container */
+/* App Container Ringan */
 .app-container {
     max-width: 480px;
     margin: 10px auto;
     height: 95vh;
     background: var(--glass);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(0, 242, 255, 0.2);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
 }
 
 header {
     padding: 15px 20px;
-    border-bottom: 1px solid rgba(
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.avatar-wrapper {
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+#ai-avatar {
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--neon);
+}
+.status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #00ff00;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); }
+}
+
+/* Chat Box */
+#chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.msg {
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-size: 14px;
+    max-width: 85%;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+.bot {
+    background: rgba(255,255,255,0.07);
+    align-self: flex-start;
+    border-left: 4px solid var(--neon);
+}
+.user {
+    background: linear-gradient(45deg, var(--neon), var(--purple));
+    color: black;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+/* Loader Sederhana */
+#loader {
+    text-align: center;
+    color: var(--neon);
+    font-size: 12px;
+    padding: 5px;
+}
+.hidden {
+    display: none;
+}
+
+/* Quick Buttons */
+.quick-btns {
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+}
+.quick-btn {
+    background: rgba(0, 242, 255, 0.1);
+    border: 1px solid var(--neon);
+    color: var(--neon);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Input Area */
+.input-area {
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    gap: 10px;
+}
+input {
+    flex: 1;
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    outline: none;
+}
+#send-btn {
+    background: var(--neon);
+    color: black;
+    border: none;
+    padding: 0 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Settings Modal */
+#settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+.modal-content {
+    position: relative;
+    background: var(--bg-dark);
+    border: 1px solid var(--neon);
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%;
+    max-width: 350px;
+}
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+.setting-section {
+    margin: 15px 0;
+}
+.setting-btn {
+    background: var(--glass);
+    border: 1px solid var(--neon);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
